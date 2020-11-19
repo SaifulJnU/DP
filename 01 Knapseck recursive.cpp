@@ -9,17 +9,12 @@ int knapSack(int W, int wt[], int val[], int n)
     if (n == 0 || W == 0)
         return 0;
 
-
+   //diagram condition
     if (wt[n - 1] > W)
-        return knapSack(W, wt, val, n - 1);
+        return knapSack(W, wt, val, n - 1);  //exclude the item
     else
-        return max(
-            val[n - 1]
-                + knapSack(W - wt[n - 1],
-                           wt, val, n - 1),
-            knapSack(W, wt, val, n - 1));
+        return max(val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1), knapSack(W, wt, val, n - 1)); //optimal one= max(include the item, exclude the item)
 }
-
 
 int main()
 {
