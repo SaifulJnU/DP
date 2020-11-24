@@ -18,11 +18,11 @@ int knapSack(int W, int wt[], int val[], int n)
                 T[i][j] = max(val[i - 1]+ T[i - 1][j- wt[i - 1]], T[i - 1][j]); ///ekhane knapsack function ke call na kore optimal
                                                                                 ///data T namok table store kore rakhlam.
             else
-                T[i][j] = T[i - 1][j];
+                T[i][j] = T[i - 1][j];     
         }
     }
 
-    return T[n][W];
+    return T[n][W];  /// table er last e optimal answer store kora ache tai last element return kore dilam.
 }
 
 int main()
